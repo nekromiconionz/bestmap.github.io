@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Интерактивная карта Симферополя при помощи Leaflet</title>
+      <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+      <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+   </head>
+
+   <body>
+      <div id = "map" style = "width: 1500px; height: 1000px"></div>
+      <script>
+            var mapOptions = {
+               center: [44.937228, 34.133135],
+               zoom: 13
+            }
+            var map = new L.map('map', mapOptions);
+            var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+            });
+            map.addLayer(layer);
+            var mtk1 = L.marker([44.965008, 34.098788]).addTo(map);
+            var mtk2 = L.marker([44.943095, 34.094438]).addTo(map);
+            var mtk3 = L.marker([44.936683, 34.133906]).addTo(map);
+            var mtk4 = L.marker([44.974861, 34.136681]).addTo(map);
+            mtk1.bindPopup("<b>Парк имени Юрия Алексеевича Гагарина</b></br>При новом главе администрации Елене Степановне Проценко парк невероятно преобразился")
+            mtk2.bindPopup("<b>Шаурма у Айдера</b></br>В рейтинге Forbes шаурмичная заняла 1 место.")
+            mtk3.bindPopup("<b>КФУ имени В.И. Вернадского</b></br>В рейтинге Forbes университет занял 67 место. Это единственный вуз региона, попавший в список")
+            mtk4.bindPopup("<b>Худшая транспортная развязка}</b></br>В моем личном рейтинге")
+      </script>
+   </body>
+   
+</html>
